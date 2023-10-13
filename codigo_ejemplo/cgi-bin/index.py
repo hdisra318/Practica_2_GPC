@@ -2,7 +2,7 @@
 import cgi
 
 print ("Content-type: text/html")
-print
+# print
 
 print ("""
 Hola Mundo
