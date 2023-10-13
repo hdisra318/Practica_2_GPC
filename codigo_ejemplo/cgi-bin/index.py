@@ -90,3 +90,5 @@ finally:
     if (connection):
         cursor.close()
         connection.close()
+
+print("</div></body></html>")
