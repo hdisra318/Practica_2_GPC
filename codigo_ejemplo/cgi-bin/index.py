@@ -81,10 +81,10 @@ connection = psycopg2.connect(user = "admin",
 cursor = connection.cursor()
 user = form["user"].value
 passw = form["pass"].value
+print("<p> Los datos fueron Usuario: "+user+" y Contrasena: "+passw)
 cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
     # password_hash = cursor.fetchone()[0].encode('utf8')
 password = cursor.fetchone()
-print("<p> Los datos fueron Usuario: "+user+" y Contrasena: "+password)
 #     if bcrypt.checkpw(passw.encode('utf8'), password_hash):
 #         print("<h2> Bienvenido :D " + user + " </h2>")
 #     else:
