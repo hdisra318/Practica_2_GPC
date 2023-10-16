@@ -69,19 +69,20 @@ print("""
     <h1>Resultados del Login: </h1>
     """)
 form=cgi.FieldStorage()
-print ("<p>user:", form["user"].value)
-print ("<p>pass:", form["pass"].value)
+user = form["user"].value
+passw = form["pass"].value
+print ("<p>user:", user)
+print ("<p>pass:", passw)
 # form=cgi.FieldStorage()
 #try:
+print("<p> Los datos fueron Usuario: "+user+" y Contrasena: "+passw)
 connection = psycopg2.connect(user = "admin",
                                   password = "losfifas",
                                   host = "10.0.0.4",
                                   port = 5432,
                                   database = "Usuarios")
 cursor = connection.cursor()
-user = form["user"].value
-passw = form["pass"].value
-print("<p> Los datos fueron Usuario: "+user+" y Contrasena: "+passw)
+
 cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
     # password_hash = cursor.fetchone()[0].encode('utf8')
 password = cursor.fetchone()
