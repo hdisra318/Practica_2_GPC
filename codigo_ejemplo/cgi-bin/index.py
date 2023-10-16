@@ -66,6 +66,7 @@ print("""
 </head>
 <body>
     <div id="login-container">
+      <h1>Resultados del Login: </h1>
     """)
 form=cgi.FieldStorage()
 try:
