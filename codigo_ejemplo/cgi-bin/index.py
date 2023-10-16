@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# import cgi
+import cgi
 
 # print ("Content-type: text/html")
 # # print
@@ -12,7 +12,7 @@
 # print ("<p>user:", form["user"].value)
 # print ("<p>pass:", form["pass"].value)
 
-# import psycopg2
+import psycopg2
 # import bcrypt
 
 # ---------------- CAMBIOS ANTERIORES ----------------
@@ -67,29 +67,29 @@ print("""
 <body>
     <div id="login-container">
     """)
-# form=cgi.FieldStorage()
-# try:
-#     connection = psycopg2.connect(user = "admin",
-#                                   password = "losfifas",
-#                                   host = "10.0.0.4",
-#                                   port = 5432,
-#                                   database = "Usuarios")
-#     cursor = connection.cursor()
-#     user = form["user"].value
-#     passw = form["pass"].value
-#     cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
-#     password_hash = cursor.fetchone()[0].encode('utf8')
-
+form=cgi.FieldStorage()
+try:
+    connection = psycopg2.connect(user = "admin",
+                                  password = "losfifas",
+                                  host = "10.0.0.4",
+                                  port = 5432,
+                                  database = "Usuarios")
+    cursor = connection.cursor()
+    user = form["user"].value
+    passw = form["pass"].value
+    # cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
+    # password_hash = cursor.fetchone()[0].encode('utf8')
+    print("<p> Los datos fueron Usuario: "+user+" y Contrasena: "+passw)
 #     if bcrypt.checkpw(passw.encode('utf8'), password_hash):
 #         print("<h2> Bienvenido :D " + user + " </h2>")
 #     else:
 #         print("<h2> Ese nombre no me suena D: </h2>")
-# except (Exception, psycopg2.Error) as error :
-#     print("Error while connectiong to PostgreSQL", error)
-# finally:
-#     if (connection):
-#         cursor.close()
-#         connection.close()
+except (Exception, psycopg2.Error) as error :
+    print("Error while connectiong to PostgreSQL", error)
+finally:
+    if (connection):
+        cursor.close()
+        connection.close()
 
 
 print("""
