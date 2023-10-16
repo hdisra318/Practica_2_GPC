@@ -75,9 +75,9 @@ try:
                                   host = "10.0.0.4",
                                   port = 5432,
                                   database = "Usuarios")
-    cursor = connection.cursor()
-    user = form["user"].value
-    passw = form["pass"].value
+    #cursor = connection.cursor()
+    #user = form["user"].value
+    #passw = form["pass"].value
     # cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
     # password_hash = cursor.fetchone()[0].encode('utf8')
     print("<p> Los datos fueron Usuario: "+user+" y Contrasena: "+passw)
