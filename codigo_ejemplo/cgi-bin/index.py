@@ -72,13 +72,13 @@ form=cgi.FieldStorage()
 print ("<p>user:", form["user"].value)
 print ("<p>pass:", form["pass"].value)
 # form=cgi.FieldStorage()
-# try:
-#     connection = psycopg2.connect(user = "admin",
-#                                   password = "losfifas",
-#                                   host = "10.0.0.4",
-#                                   port = 5432,
-#                                   database = "Usuarios")
-    #cursor = connection.cursor()
+#try:
+connection = psycopg2.connect(user = "admin",
+                                  password = "losfifas",
+                                  host = "10.0.0.4",
+                                  port = 5432,
+                                  database = "Usuarios")
+cursor = connection.cursor()
     #user = form["user"].value
     #passw = form["pass"].value
     # cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
