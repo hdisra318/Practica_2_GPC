@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 import cgi
 
-print ("Content-type: text/html")
-# # print
+# print ("Content-type: text/html")
+# # # print
 
-print ("""
-Hola Mundo
-""")
+# print ("""
+# Hola Mundo
+# """)
 
-form=cgi.FieldStorage()
-print ("<p>user:", form["user"].value)
-print ("<p>pass:", form["pass"].value)
+# form=cgi.FieldStorage()
+# print ("<p>user:", form["user"].value)
+# print ("<p>pass:", form["pass"].value)
 
 #import psycopg2
 # import bcrypt
@@ -54,20 +54,23 @@ print ("<p>pass:", form["pass"].value)
 #     print("Credenciales incorrectas")
 # ----------------------------------------------------------------
 
-# print("Content-type: text/html\n")
-# print("""
-# <!DOCTYPE html>
-# <html lang="en">
-# <head>
-#     <meta chaset="UTF-8">
-#     <meta name="viewport" content="widtg=device-width, initial-scale=1.0>
-#     <title>Iniciar Sesión</title>
-#     <link rel="stylesheet" href="/css/styles.css">
-# </head>
-# <body>
-#     <div id="login-container">
-#       <h1>Resultados del Login: </h1>
-#     """)
+print ("Content-type: text/html")
+print("""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta chaset="UTF-8">
+    <meta name="viewport" content="widtg=device-width, initial-scale=1.0>
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div id="login-container">
+    <h1>Resultados del Login: </h1>
+    """)
+form=cgi.FieldStorage()
+print ("<p>user:", form["user"].value)
+print ("<p>pass:", form["pass"].value)
 # form=cgi.FieldStorage()
 # try:
 #     connection = psycopg2.connect(user = "admin",
@@ -93,8 +96,8 @@ print ("<p>pass:", form["pass"].value)
 #         connection.close()
 
 
-# print("""
-#     </div>
-# </body>
-# </html>
-# """)
+print("""
+    </div>
+</body>
+</html>
+""")
