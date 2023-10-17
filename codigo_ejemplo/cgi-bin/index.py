@@ -73,7 +73,6 @@ print("""
 form=cgi.FieldStorage()
 user = form["user"].value
 passw = form["pass"].value
-passw = passw.decode('utf-8')
 print ("<p>user:", user)
 print ("<p>pass:", passw)
 
@@ -90,9 +89,10 @@ try:
     print("<p> Linea despues del SELECT - TRY")
     # password_hash = cursor.fetchone()[0].encode('utf8')
     password = cursor.fetchone()[0].encode('utf8')
+    password = password.decode('utf-8')
     if password is not None:
         print("<p>Si se hizo el SELECT</p>")
-        print(f"<p>{password.decode('utf-8')}</p>")
+        print(f"<p>{password}</p>")
         print(f"<p>{password[0] == passw[0]}</p>")
         if password == passw:
             print("<h2> Bienvenido :D " + user + " </h2>")
