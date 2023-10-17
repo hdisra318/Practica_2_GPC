@@ -88,9 +88,10 @@ try:
     cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
     print("<p> Linea despues del SELECT - TRY")
     # password_hash = cursor.fetchone()[0].encode('utf8')
-    password = cursor.fetchone()
+    password = cursor.fetchone()[0].encode('utf8')
     cursor.close()
     connection.close()
+    print(password == None)
     print("<p>"+password+"</p>")
 #     if bcrypt.checkpw(passw.encode('utf8'), password_hash):
 #         print("<h2> Bienvenido :D " + user + " </h2>")
