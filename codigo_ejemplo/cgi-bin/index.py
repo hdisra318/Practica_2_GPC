@@ -64,7 +64,7 @@ print("""
     <meta chaset="UTF-8">
     <meta name="viewport" content="widtg=device-width, initial-scale=1.0>
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
     <div class="login-info">
