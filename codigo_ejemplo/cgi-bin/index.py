@@ -89,8 +89,6 @@ try:
     print("<p> Linea despues del SELECT - TRY")
     # password_hash = cursor.fetchone()[0].encode('utf8')
     password = cursor.fetchone()[0].encode('utf8')
-    cursor.close()
-    connection.close()
     print(password == None)
     print("<p>"+password+"</p>")
 #     if bcrypt.checkpw(passw.encode('utf8'), password_hash):
@@ -106,6 +104,10 @@ try:
 except psycopg2.OperationalError as e:
     print("<p> Linea despues del SELECT - EXCEPT")
     print(f"Error al conectar a la base de datos: {e}")
+finally:
+    if(connection):
+        cursor.close()
+        connection.close()
 
 print("""
     </div>
