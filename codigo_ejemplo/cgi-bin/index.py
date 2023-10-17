@@ -110,7 +110,6 @@ try:
                 </div>
                 """)
     else:
-        print("<h2>Usuario no encontrado</h2>")
         print("""
             <div class="login-container login-fail">
                 <h2>Usuario no encontrado</h2>
