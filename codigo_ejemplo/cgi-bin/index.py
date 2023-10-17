@@ -88,12 +88,12 @@ try:
     cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
     print("<p> Linea despues del SELECT - TRY")
     # password_hash = cursor.fetchone()[0].encode('utf8')
-    password = cursor.fetchone()[0].encode('utf8')
+    password = cursor.fetchone()[0]
     if password is not None:
         print("<p>Si se hizo el SELECT</p>")
         print(f"<p>{password.decode('utf-8')}</p>")
-        print(f"<p>{password == passw.decode('utf8')}</p>")
-        if password == passw.decode('utf8'):
+        print(f"<p>{password == passw}</p>")
+        if password == passw:
             print("<h2> Bienvenido :D " + user + " </h2>")
         else:
             print("<h2> Ese nombre no me suena D: </h2>")
