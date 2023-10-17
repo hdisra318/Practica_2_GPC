@@ -61,8 +61,8 @@ print("""
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta chaset="UTF-8">
-    <meta name="viewport" content="widtg=device-width, initial-scale=1.0>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
