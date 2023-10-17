@@ -92,7 +92,6 @@ try:
     password = password.strip()
     if password is not None:
         if password == passw:
-            print("<h2> Bienvenido " + user + "!!</h2>")
             print(f"""
                 <div class="login-container">
                     <h2> Bienvenido {user}!!</h2>

@@ -75,6 +75,10 @@ img:hover,
     margin-left: 20px;
 }
 
+.login-success h2 {
+    color: rgba(0,69,142,1);
+}
+
 .login-fail {
     background-color: #ff0f7b;
 }
