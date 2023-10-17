@@ -75,7 +75,7 @@ user = form["user"].value
 passw = form["pass"].value
 print ("<p>user:", user)
 print ("<p>pass:", passw)
-# form=cgi.FieldStorage()
+
 try:
     print("<p> Los datos fueron Usuario: "+user+" y Contrasena: "+passw)
     connection = psycopg2.connect(user = "admin",
@@ -92,6 +92,10 @@ try:
     if password is not None:
         print("<p>Si se hizo el SELECT</p>")
         print(f"<p>{password}</p>")
+        if password == passw:
+            print("<h2> Bienvenido :D " + user + " </h2>")
+        else:
+            print("<h2> Ese nombre no me suena D: </h2>")
     else:
         print("<p>No se hizo el SELECT</p>")
 #     if bcrypt.checkpw(passw.encode('utf8'), password_hash):
@@ -100,10 +104,6 @@ try:
 #         print("<h2> Ese nombre no me suena D: </h2>")
 # except (Exception, psycopg2.Error) as error :
     # print("Error while connectiong to PostgreSQL", error)
-# finally:
-#     if (connection):
-#         cursor.close()
-#         connection.close()
 except psycopg2.OperationalError as e:
     print("<p> Linea despues del SELECT - EXCEPT")
     print(f"Error al conectar a la base de datos: {e}")
