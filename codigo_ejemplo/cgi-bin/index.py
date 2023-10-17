@@ -86,6 +86,7 @@ connection = psycopg2.connect(user = "admin",
 cursor = connection.cursor()
 
 cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
+print("<p> Linea despues del SELECT")
     # password_hash = cursor.fetchone()[0].encode('utf8')
 password = cursor.fetchone()
 #     if bcrypt.checkpw(passw.encode('utf8'), password_hash):
