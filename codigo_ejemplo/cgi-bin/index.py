@@ -93,7 +93,7 @@ try:
     if password is not None:
         if password == passw:
             print(f"""
-                <div class="login-container">
+                <div class="login-container login-success">
                     <h2> Bienvenido {user}!!</h2>
 
                     <div class="login-datos">
