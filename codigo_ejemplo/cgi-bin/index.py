@@ -55,14 +55,6 @@ import bcrypt
 # else:
 #     print("Credenciales incorrectas")
 # ----------------------------------------------------------------
-def passwords_iguales(p1, p2):
-    print(len(p1), len(p2))
-    for i in range(len(p1)):
-        print(f"<p>p1 = {p1[i]}, p2 = {p2[i]}</p>")
-        if p1[i] != p2[i]:
-            return False
-    return True
-
 
 print ("Content-type: text/html")
 print("""
@@ -72,20 +64,20 @@ print("""
     <meta chaset="UTF-8">
     <meta name="viewport" content="widtg=device-width, initial-scale=1.0>
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <div id="login-container">
+    <div class="login-info">
     <h1>Resultados del Login: </h1>
     """)
 form=cgi.FieldStorage()
 user = form["user"].value
 passw = form["pass"].value
-print ("<p>user:", user)
-print ("<p>pass:", passw)
+# print ("<p>user:", user)
+#print ("<p>pass:", passw)
 
 try:
-    print("<p> Los datos fueron Usuario: "+user+" y Contrasena: "+passw)
+    #print("<p> Los datos fueron Usuario: "+user+" y Contrasena: "+passw)
     connection = psycopg2.connect(user = "admin",
                                   password = "losfifas",
                                   host = "10.0.0.4",
@@ -101,20 +93,12 @@ try:
     password = password.strip()
     if password is not None:
         print("<p>Si se hizo el SELECT</p>")
-        print(f"<p>{password}</p>")
-        print(f"<p>{password[0] == passw[0]}</p>")
-        print(f"<p>{password[1] == passw[1]}</p>")
-        print(f"<p>{password[2] == passw[2]}</p>")
-        print(f"<p>{password[3] == passw[3]}</p>")
-        print(f"<p>{password[4] == passw[4]}</p>")
-        print(f"<p>{password[5] == passw[5]}</p>")
-        passwords_iguales(password, passw)
         if password == passw:
-            print("<h2> Bienvenido :D " + user + " </h2>")
+            print("<h2> Bienvenido " + user + "!!</h2>")
         else:
-            print("<h2> Ese nombre no me suena D: </h2>")
+            print("<h2> Datos incorrectos, intenta de nuevo </h2>")
     else:
-        print("<p>No se hizo el SELECT</p>")
+        print("<h2>Usuario no encontrado</h2>")
 #     if bcrypt.checkpw(passw.encode('utf8'), password_hash):
 #         print("<h2> Bienvenido :D " + user + " </h2>")
 #     else:
@@ -122,7 +106,7 @@ try:
 # except (Exception, psycopg2.Error) as error :
     # print("Error while connectiong to PostgreSQL", error)
 except psycopg2.OperationalError as e:
-    print("<p> Linea despues del SELECT - EXCEPT")
+    #print("<p> Linea despues del SELECT - EXCEPT")
     print(f"Error al conectar a la base de datos: {e}")
 finally:
     if(connection):

@@ -39,3 +39,9 @@ img:hover,
 .boton:hover {
     transform: scale(1.1);
 }
+
+
+/* Estilos para la pagina despues del login */
+.login-info {
+    
+}
