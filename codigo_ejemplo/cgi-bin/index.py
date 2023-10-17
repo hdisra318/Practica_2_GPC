@@ -92,8 +92,8 @@ try:
     if password is not None:
         print("<p>Si se hizo el SELECT</p>")
         print(f"<p>{password.decode('utf-8')}</p>")
-        print(f"<p>{password == passw.encode('utf8')}</p>")
-        if password == passw.encode('utf8'):
+        print(f"<p>{password == passw.decode('utf8')}</p>")
+        if password == passw.decode('utf8'):
             print("<h2> Bienvenido :D " + user + " </h2>")
         else:
             print("<h2> Ese nombre no me suena D: </h2>")
