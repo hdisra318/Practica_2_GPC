@@ -91,7 +91,7 @@ try:
     password = cursor.fetchone()
     if password is not None:
         print("<p>Si se hizo el SELECT</p>")
-        print("<p>"+password+"</p>")
+        print(f"<p>{password}</p>")
     else:
         print("<p>No se hizo el SELECT</p>")
 #     if bcrypt.checkpw(passw.encode('utf8'), password_hash):
