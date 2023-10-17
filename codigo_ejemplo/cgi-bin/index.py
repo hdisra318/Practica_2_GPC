@@ -86,19 +86,37 @@ try:
     cursor = connection.cursor()
 
     cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
-    print("<p> Linea despues del SELECT - TRY")
     # password_hash = cursor.fetchone()[0].encode('utf8')
     password = cursor.fetchone()[0].encode('utf8')
     password = password.decode('utf-8')
     password = password.strip()
     if password is not None:
-        print("<p>Si se hizo el SELECT</p>")
         if password == passw:
             print("<h2> Bienvenido " + user + "!!</h2>")
+            print(f"""
+                <div class="login-container">
+                    <h2> Bienvenido {user}!!</h2>
+
+                    <div class="login-datos">
+                        <h3>Tus datos son:</h3>
+                        <p>Usuario: {user}</p>
+                        <p>Contraseña: {passw}</p>
+                    </div>
+                </div>
+                """)
         else:
-            print("<h2> Datos incorrectos, intenta de nuevo </h2>")
+            print("""
+                <div class="login-container login-fail">
+                    <h2>Contraseña incorrecta</h2>
+                </div>
+                """)
     else:
         print("<h2>Usuario no encontrado</h2>")
+        print("""
+            <div class="login-container login-fail">
+                <h2>Usuario no encontrado</h2>
+            </div>
+            """)
 #     if bcrypt.checkpw(passw.encode('utf8'), password_hash):
 #         print("<h2> Bienvenido :D " + user + " </h2>")
 #     else:
@@ -107,7 +125,7 @@ try:
     # print("Error while connectiong to PostgreSQL", error)
 except psycopg2.OperationalError as e:
     #print("<p> Linea despues del SELECT - EXCEPT")
-    print(f"Error al conectar a la base de datos: {e}")
+    print(f"<p>Error al conectar a la base de datos: {e}</p>")
 finally:
     if(connection):
         cursor.close()
