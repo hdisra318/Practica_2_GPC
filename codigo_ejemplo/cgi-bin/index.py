@@ -55,6 +55,13 @@ import bcrypt
 # else:
 #     print("Credenciales incorrectas")
 # ----------------------------------------------------------------
+def passwords_iguales(p1, p2):
+    for i in range(0, p1):
+        print(f"p1 = {p1[i]}, p2 = {p2[i]}")
+        if p1[i] != p2:
+            return False
+    return True
+
 
 print ("Content-type: text/html")
 print("""
@@ -94,7 +101,7 @@ try:
         print("<p>Si se hizo el SELECT</p>")
         print(f"<p>{password}</p>")
         print(f"<p>{password[0] == passw[0]}</p>")
-        if password == passw:
+        if passwords_iguales(password, passw):
             print("<h2> Bienvenido :D " + user + " </h2>")
         else:
             print("<h2> Ese nombre no me suena D: </h2>")
@@ -119,3 +126,4 @@ print("""
 </body>
 </html>
 """)
+
