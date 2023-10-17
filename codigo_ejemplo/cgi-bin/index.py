@@ -101,6 +101,11 @@ try:
         print("<p>Si se hizo el SELECT</p>")
         print(f"<p>{password}</p>")
         print(f"<p>{password[0] == passw[0]}</p>")
+        print(f"<p>{password[1] == passw[1]}</p>")
+        print(f"<p>{password[2] == passw[2]}</p>")
+        print(f"<p>{password[3] == passw[3]}</p>")
+        print(f"<p>{password[4] == passw[4]}</p>")
+        print(f"<p>{password[5] == passw[5]}</p>")
         if passwords_iguales(password, passw):
             print("<h2> Bienvenido :D " + user + " </h2>")
         else:
