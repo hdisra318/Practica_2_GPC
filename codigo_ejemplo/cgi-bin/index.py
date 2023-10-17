@@ -109,7 +109,7 @@ try:
         print(f"<p>{password[4] == passw[4]}</p>")
         print(f"<p>{password[5] == passw[5]}</p>")
         passwords_iguales(password, passw)
-        if passwords_iguales(password, passw):
+        if password == passw:
             print("<h2> Bienvenido :D " + user + " </h2>")
         else:
             print("<h2> Ese nombre no me suena D: </h2>")
