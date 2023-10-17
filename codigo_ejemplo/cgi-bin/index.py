@@ -56,7 +56,7 @@ import bcrypt
 #     print("Credenciales incorrectas")
 # ----------------------------------------------------------------
 def passwords_iguales(p1, p2):
-    for i in range(0, p1):
+    for i in range(0, len(p1)):
         print(f"<p>p1 = {p1[i]}, p2 = {p2[i]}</p>")
         if p1[i] != p2:
             return False
