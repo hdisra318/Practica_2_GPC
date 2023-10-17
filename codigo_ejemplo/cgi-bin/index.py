@@ -73,6 +73,7 @@ print("""
 form=cgi.FieldStorage()
 user = form["user"].value
 passw = form["pass"].value
+passw = passw.decode('utf-8')
 print ("<p>user:", user)
 print ("<p>pass:", passw)
 
