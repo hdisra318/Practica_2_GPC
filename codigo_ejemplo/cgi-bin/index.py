@@ -88,9 +88,9 @@ try:
     cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
     # password_hash = cursor.fetchone()[0].encode('utf8')
     password = cursor.fetchone()[0].encode('utf8')
-    password = password.decode('utf-8')
-    password = password.strip()
     if password is not None:
+        password = password.decode('utf-8')
+        password = password.strip()
         if password == passw:
             print(f"""
                 <div class="login-container login-success">
