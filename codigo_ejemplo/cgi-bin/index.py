@@ -76,30 +76,34 @@ passw = form["pass"].value
 print ("<p>user:", user)
 print ("<p>pass:", passw)
 # form=cgi.FieldStorage()
-#try:
-print("<p> Los datos fueron Usuario: "+user+" y Contrasena: "+passw)
-connection = psycopg2.connect(user = "admin",
+try:
+    print("<p> Los datos fueron Usuario: "+user+" y Contrasena: "+passw)
+    connection = psycopg2.connect(user = "admin",
                                   password = "losfifas",
                                   host = "10.0.0.4",
                                   port = "5432",
                                   database = "usuarios")
-cursor = connection.cursor()
+    cursor = connection.cursor()
 
-cursor.execute("SELECT password FROM usuarios WHERE username = %s", (user,))
-print("<p> Linea despues del SELECT")
+    cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
+    print("<p> Linea despues del SELECT - TRY")
     # password_hash = cursor.fetchone()[0].encode('utf8')
-password = cursor.fetchone()
+    # password = cursor.fetchone()
+    # cursor.close()
+    connection.close()
 #     if bcrypt.checkpw(passw.encode('utf8'), password_hash):
 #         print("<h2> Bienvenido :D " + user + " </h2>")
 #     else:
 #         print("<h2> Ese nombre no me suena D: </h2>")
 # except (Exception, psycopg2.Error) as error :
-#     print("Error while connectiong to PostgreSQL", error)
+    # print("Error while connectiong to PostgreSQL", error)
 # finally:
 #     if (connection):
 #         cursor.close()
 #         connection.close()
-
+except psycopg2.OperationalError as e:
+    print("<p> Linea despues del SELECT - EXCEPT")
+    print(f"Error al conectar a la base de datos: {e}")
 
 print("""
     </div>
