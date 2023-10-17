@@ -98,6 +98,7 @@ try:
     # password_hash = cursor.fetchone()[0].encode('utf8')
     password = cursor.fetchone()[0].encode('utf8')
     password = password.decode('utf-8')
+    password = password.strip()
     if password is not None:
         print("<p>Si se hizo el SELECT</p>")
         print(f"<p>{password}</p>")
