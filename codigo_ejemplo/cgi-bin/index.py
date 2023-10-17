@@ -57,7 +57,7 @@ import bcrypt
 # ----------------------------------------------------------------
 def passwords_iguales(p1, p2):
     for i in range(0, p1):
-        print(f"p1 = {p1[i]}, p2 = {p2[i]}")
+        print(f"<p>p1 = {p1[i]}, p2 = {p2[i]}</p>")
         if p1[i] != p2:
             return False
     return True
@@ -106,6 +106,7 @@ try:
         print(f"<p>{password[3] == passw[3]}</p>")
         print(f"<p>{password[4] == passw[4]}</p>")
         print(f"<p>{password[5] == passw[5]}</p>")
+        passwords_iguales(password, passw)
         if passwords_iguales(password, passw):
             print("<h2> Bienvenido :D " + user + " </h2>")
         else:
