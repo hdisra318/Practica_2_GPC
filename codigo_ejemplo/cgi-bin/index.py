@@ -59,7 +59,7 @@ def passwords_iguales(p1, p2):
     print(len(p1), len(p2))
     for i in range(len(p1)):
         print(f"<p>p1 = {p1[i]}, p2 = {p2[i]}</p>")
-        if p1[i] != p2:
+        if p1[i] != p2[i]:
             return False
     return True
 
