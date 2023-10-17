@@ -82,10 +82,10 @@ connection = psycopg2.connect(user = "admin",
                                   password = "losfifas",
                                   host = "10.0.0.4",
                                   port = "5432",
-                                  database = "Usuarios")
+                                  database = "usuarios")
 cursor = connection.cursor()
 
-cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
+cursor.execute("SELECT password FROM usuarios WHERE username = %s", (user,))
 print("<p> Linea despues del SELECT")
     # password_hash = cursor.fetchone()[0].encode('utf8')
 password = cursor.fetchone()
