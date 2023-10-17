@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 import cgi
+import psycopg2
+import bcrypt
 
 # print ("Content-type: text/html")
 # # # print
@@ -79,13 +81,14 @@ print("<p> Los datos fueron Usuario: "+user+" y Contrasena: "+passw)
 connection = psycopg2.connect(user = "admin",
                                   password = "losfifas",
                                   host = "10.0.0.4",
-                                  port = 5432,
+                                  port = "5432",
                                   database = "Usuarios")
 cursor = connection.cursor()
 
 cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
     # password_hash = cursor.fetchone()[0].encode('utf8')
 password = cursor.fetchone()
+print("<h2> Bienvenido :D " + user + " </h2>")
 #     if bcrypt.checkpw(passw.encode('utf8'), password_hash):
 #         print("<h2> Bienvenido :D " + user + " </h2>")
 #     else:
