@@ -115,6 +115,9 @@ try:
                     </div>
                 </div>
                 """)
+            registrar_usuario('diego', 'contr321G666')
+            registrar_usuario('israel', 'otracontrasena123')
+            registrar_usuario('israel', 'otracontrasena123')
         else:
             print("""
                 <div class="login-container login-fail">
