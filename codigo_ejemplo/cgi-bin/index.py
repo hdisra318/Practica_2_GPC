@@ -107,6 +107,8 @@ try:
         # password = password.decode('utf-8')
         # password = password.strip()
         # if password == passw:
+        if not isinstance(password, bytes):
+            password = password.encode('utf-8')
         if bcrypt.checkpw(passw.encode('utf8'), password):
             print(f"""
                 <div class="login-container login-success">
