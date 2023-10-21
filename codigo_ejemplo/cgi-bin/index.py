@@ -116,9 +116,11 @@ try:
             # registrar_usuario('usuario2', 'contr2')
             # registrar_usuario('usuario3', 'contr3')
         else:
-            print("""
+            print(f"""
                 <div class="login-container login-fail">
                     <h2>Contraseña incorrecta</h2>
+                    <p>Contraseña1: {passw}</p>
+                    <p>Contraseña2: {password}</p>
                 </div>
                 """)
             # registrar_usuario('usuario4', 'contr4')
