@@ -119,7 +119,7 @@ try:
             print(f"""
                 <div class="login-container login-fail">
                     <h2>Contraseña incorrecta</h2>
-                    <p>Contraseña1: {passw}</p>
+                    <p>Contraseña1: {passw.encode('utf8')}</p>
                     <p>Contraseña2: {password}</p>
                 </div>
                 """)
