@@ -85,7 +85,19 @@ try:
                                   database = "usuarios")
     cursor = connection.cursor()
 
-    cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
+    def registrar_usuario(username, password):
+        # Generar un hash de la contraseña
+        password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
+        # Insertar el usuario en la base de datos
+        cursor.execute("INSERT INTO Usuarios (username, password) VALUES (%s, %s)", (username, password))
+        connection.commit()
+
+    # cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
+    # Consulta parametrizada
+    query = "SELECT password FROM Usuarios WHERE username = %s"
+    cursor.execute(query, (user,))
+    # ----------------------
     # password_hash = cursor.fetchone()[0].encode('utf8')
     password = cursor.fetchone()[0].encode('utf8')
     if password is not None:
@@ -109,12 +121,14 @@ try:
                     <h2>Contraseña incorrecta</h2>
                 </div>
                 """)
+            registrar_usuario('usuario', 'contr123G666')
     else:
         print("""
             <div class="login-container login-fail">
                 <h2>Usuario no encontrado</h2>
             </div>
             """)
+        registrar_usuario('diego', 'contr321G666')
 #     if bcrypt.checkpw(passw.encode('utf8'), password_hash):
 #         print("<h2> Bienvenido :D " + user + " </h2>")
 #     else:
