@@ -85,13 +85,13 @@ try:
                                   database = "usuarios")
     cursor = connection.cursor()
 
-    def registrar_usuario(username, password):
-        # Generar un hash de la contraseña
-        password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    # def registrar_usuario(username, password):
+    #     # Generar un hash de la contraseña
+    #     password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-        # Insertar el usuario en la base de datos
-        cursor.execute("INSERT INTO Usuarios (username, password) VALUES (%s, %s)", (username, password))
-        connection.commit()
+    #     # Insertar el usuario en la base de datos
+    #     cursor.execute("INSERT INTO Usuarios (username, password) VALUES (%s, %s)", (username, password))
+    #     connection.commit()
 
     # cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
     # Consulta parametrizada
@@ -115,9 +115,9 @@ try:
                     </div>
                 </div>
                 """)
-            registrar_usuario('diego', 'contr321G666')
-            registrar_usuario('israel', 'otracontrasena123')
-            registrar_usuario('israel', 'otracontrasena123')
+            # registrar_usuario('diego', 'contr321G666')
+            # registrar_usuario('israel', 'otracontrasena123')
+            # registrar_usuario('israel', 'otracontrasena123')
         else:
             print("""
                 <div class="login-container login-fail">
