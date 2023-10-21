@@ -85,10 +85,10 @@ try:
                                   database = "usuarios")
     cursor = connection.cursor()
 
-    def registrar_usuario(username, passw):
-        password_hash = bcrypt.hashpw(passw.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
-        cursor.execute("INSERT INTO Usuarios (username, password) VALUES (%s, %s)", (username, password_hash))
-        connection.commit()
+    # def registrar_usuario(username, passw):
+    #     password_hash = bcrypt.hashpw(passw.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+    #     cursor.execute("INSERT INTO Usuarios (username, password) VALUES (%s, %s)", (username, password_hash))
+    #     connection.commit()
 
     # cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
     # Consulta parametrizada
@@ -97,10 +97,10 @@ try:
     # password_hash = cursor.fetchone()[0].encode('utf8')
     password = cursor.fetchone()[0].encode('utf8')
     if password is not None:
-        password = password.decode('utf-8')
-        password = password.strip()
-        if password == passw:
-        # if bcrypt.checkpw(passw.encode('utf8'), password):
+        # password = password.decode('utf-8')
+        # password = password.strip()
+        # if password == passw:
+        if bcrypt.checkpw(passw.encode('utf8'), password):
             print(f"""
                 <div class="login-container login-success">
                     <h2> Bienvenido {user}!!</h2>
@@ -112,27 +112,27 @@ try:
                     </div>
                 </div>
                 """)
-            registrar_usuario('usuario1', 'contr1')
-            registrar_usuario('usuario2', 'contr2')
-            registrar_usuario('usuario3', 'contr3')
+            # registrar_usuario('usuario1', 'contr1')
+            # registrar_usuario('usuario2', 'contr2')
+            # registrar_usuario('usuario3', 'contr3')
         else:
             print("""
                 <div class="login-container login-fail">
                     <h2>Contraseña incorrecta</h2>
                 </div>
                 """)
-            registrar_usuario('usuario4', 'contr4')
-            registrar_usuario('usuario5', 'contr5')
-            registrar_usuario('usuario6', 'contr6')
+            # registrar_usuario('usuario4', 'contr4')
+            # registrar_usuario('usuario5', 'contr5')
+            # registrar_usuario('usuario6', 'contr6')
     else:
         print("""
             <div class="login-container login-fail">
                 <h2>Usuario no encontrado</h2>
             </div>
             """)
-        registrar_usuario('usuario7', 'contr7')
-        registrar_usuario('usuario8', 'contr8')
-        registrar_usuario('usuario9', 'contr9')
+        # registrar_usuario('usuario7', 'contr7')
+        # registrar_usuario('usuario8', 'contr8')
+        # registrar_usuario('usuario9', 'contr9')
 #     if bcrypt.checkpw(passw.encode('utf8'), password_hash):
 #         print("<h2> Bienvenido :D " + user + " </h2>")
 #     else:
