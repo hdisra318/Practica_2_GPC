@@ -95,12 +95,12 @@ try:
     query = "SELECT password FROM Usuarios WHERE username = %s"
     cursor.execute(query, (user,))
     # password_hash = cursor.fetchone()[0].encode('utf8')
-    password = cursor.fetchone()[0].encode('utf8')
+    password = cursor.fetchone()[0].strip()
     if password is not None:
         # password = password.decode('utf-8')
         # password = password.strip()
         # if password == passw:
-        if bcrypt.checkpw(passw.encode('utf8'), password):
+        if bcrypt.checkpw(passw.encode('utf8'), password.encode('utf8')):
             print(f"""
                 <div class="login-container login-success">
                     <h2> Bienvenido {user}!!</h2>
@@ -123,7 +123,7 @@ try:
                     <p>Contraseña2: {password}</p>
                 </div>
                 """)
-            # registrar_usuario('usuario4', 'contr4')
+            registrar_usuario("usuario11", "contr1")
             # registrar_usuario('usuario5', 'contr5')
             # registrar_usuario('usuario6', 'contr6')
     else:
