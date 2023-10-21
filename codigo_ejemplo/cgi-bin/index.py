@@ -97,10 +97,10 @@ try:
     # password_hash = cursor.fetchone()[0].encode('utf8')
     password = cursor.fetchone()[0].encode('utf8')
     if password is not None:
-        password = password.decode('utf-8')
-        password = password.strip()
-        if password == passw:
-        # if bcrypt.checkpw(passw.encode('utf8'), password):
+        # password = password.decode('utf-8')
+        # password = password.strip()
+        # if password == passw:
+        if bcrypt.checkpw(passw.encode('utf8'), password):
             print(f"""
                 <div class="login-container login-success">
                     <h2> Bienvenido {user}!!</h2>
