@@ -85,10 +85,10 @@ try:
                                   database = "usuarios")
     cursor = connection.cursor()
 
-    def registrar_usuario(username, passw):
-        password_hash = bcrypt.hashpw(passw.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
-        cursor.execute("INSERT INTO Usuarios (username, password) VALUES (%s, %s)", (username, password_hash))
-        connection.commit()
+    # def registrar_usuario(username, passw):
+    #     password_hash = bcrypt.hashpw(passw.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+    #     cursor.execute("INSERT INTO Usuarios (username, password) VALUES (%s, %s)", (username, password_hash))
+    #     connection.commit()
 
     # cursor.execute("SELECT password FROM Usuarios WHERE username = %s", (user,))
     # Consulta parametrizada
@@ -136,9 +136,9 @@ try:
         # registrar_usuario('usuario7', 'contr7')
         # registrar_usuario('usuario8', 'contr8')
         # registrar_usuario('usuario9', 'contr9')
-        registrar_usuario('usuario1', 'contr1')
-        registrar_usuario('usuario2', 'contr2')
-        registrar_usuario('usuario3', 'contr3')
+        # registrar_usuario('usuario1', 'contr1')
+        # registrar_usuario('usuario2', 'contr2')
+        # registrar_usuario('usuario3', 'contr3')
 #     if bcrypt.checkpw(passw.encode('utf8'), password_hash):
 #         print("<h2> Bienvenido :D " + user + " </h2>")
 #     else:
