@@ -95,8 +95,11 @@ try:
     query = "SELECT password FROM Usuarios WHERE username = %s"
     cursor.execute(query, (user,))
     # password_hash = cursor.fetchone()[0].encode('utf8')
-    password = cursor.fetchone()[0].strip()
-    if password is not None:
+    # password = cursor.fetchone()[0].strip()
+    result = cursor.fetchone()
+    # if password is not None:
+    if result is not None:
+        password = result[0].strip()
         # password = password.decode('utf-8')
         # password = password.strip()
         # if password == passw:
@@ -119,11 +122,9 @@ try:
             print(f"""
                 <div class="login-container login-fail">
                     <h2>Contraseña incorrecta</h2>
-                    <p>Contraseña1: {passw}</p>
-                    <p>Contraseña2: {password}</p>
                 </div>
                 """)
-            registrar_usuario("usuario11", "contr1")
+            # registrar_usuario("usuario11", "contr1")
             # registrar_usuario('usuario5', 'contr5')
             # registrar_usuario('usuario6', 'contr6')
     else:
